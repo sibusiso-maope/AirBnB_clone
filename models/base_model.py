@@ -19,11 +19,11 @@ class BaseModel:
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
         if len(kwargs) != 0:
-            for h, i in kwargs.items():
-                if h == "created_at" or h == "updated_at":
-                    self.__dict__[h] = datetime.strptime(i, tform)
+            for k, v in kwargs.items():
+                if k == "created_at" or k == "updated_at":
+                    self.__dict__[k] = datetime.strptime(v, tform)
                 else:
-                    self.__dict__[h] = i
+                    self.__dict__[k] = v
         else:
             models.storage.new(self)
 
